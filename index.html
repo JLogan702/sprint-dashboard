@@ -1,68 +1,116 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sprint Dashboard</title>
-    <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
-        h1 { text-align: center; }
-        .tabs { display: flex; justify-content: center; margin-bottom: 20px; }
-        .tab-button {
-            padding: 10px 20px;
-            margin: 0 5px;
-            background: #ccc;
-            border: none;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-        .tab-button.active { background: #333; color: white; }
-        .tab-content { display: none; padding: 20px; background: white; border-radius: 10px; box-shadow: 4px 4px 12px rgba(0,0,0,0.1); }
-        .tab-content.active { display: block; }
-        .team-block {
-            display: inline-block;
-            width: 30%;
-            vertical-align: top;
-            margin: 1%;
-            padding: 15px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 2px 2px 8px rgba(0,0,0,0.05);
-        }
-        .stoplight-img { width: 60px; display: block; margin: 10px auto; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sprint Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .tab-button {
+      padding: 10px 20px;
+      background: #ccc;
+      border: none;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .tab-button.active {
+      background: #333;
+      color: #fff;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+    }
+    .team-block {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 400px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .team-block h2 {
+      margin-top: 0;
+    }
+    .team-block img {
+      width: 40px;
+      vertical-align: middle;
+    }
+    .explanation {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
-    <h1>Sprint Dashboard</h1>
-    <div class="tabs">
-        <button class="tab-button active" onclick="showTab('readiness')">Sprint Readiness</button>
-        <button class="tab-button" onclick="showTab('backlog')">Backlog Health</button>
-    </div>
+  <h1>Sprint Dashboard</h1>
+  <div class="tabs">
+    <button class="tab-button active" onclick="showTab('readiness')">Sprint Readiness</button>
+    <button class="tab-button" onclick="showTab('backlog')">Backlog Health</button>
+  </div>
 
-    <div id="readiness" class="tab-content active">
-        <div class="team-block">
-            <h2>Data Science</h2>
-            <img class="stoplight-img" src="charts/stoplight_red.png" alt="Stoplight">
-            <p><strong>Readiness:</strong> 0%</p>
-            <p><strong>In Sprint:</strong> 3<br><strong>Ready:</strong> 0</p>
-            <p><strong>Missing:</strong> 0 estimates, 0 assignees</p>
-            <p>Calculated from stories in 'New', 'Grooming', or 'To Do' that are fully filled out.</p>
-        </div>
-        <!-- Repeat this block structure for the other teams... -->
+  <div id="readiness" class="tab-content active">
+    <div class="team-block">
+      <h2>Data Science</h2>
+      <img src="stoplight_red.png" alt="Stoplight" /> 0% Ready
+      <p><strong>In Sprint:</strong> 3<br><strong>Ready:</strong> 0</p>
+      <p><strong>Missing:</strong> 0 estimates, 0 assignees</p>
+      <p class="explanation">
+        Calculated from stories in 'New', 'Grooming', or 'To Do' that are fully filled out.
+      </p>
     </div>
-
-    <div id="backlog" class="tab-content">
-        <!-- Backlog health content will go here -->
+    <div class="team-block">
+      <h2>Engineering – Platform</h2>
+      <img src="stoplight_yellow.png" alt="Stoplight" /> 50% Ready
+      <p><strong>In Sprint:</strong> 6<br><strong>Ready:</strong> 3</p>
+      <p><strong>Missing:</strong> 1 estimate, 2 assignees</p>
+      <p class="explanation">
+        Readiness reflects grooming completion rate for sprint 7–8.
+      </p>
     </div>
+    <!-- Repeat team-block for other teams -->
+  </div>
 
-    <script>
-        function showTab(id) {
-            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
-            document.querySelectorAll('.tab-button').forEach(tb => tb.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
+  <div id="backlog" class="tab-content">
+    <div class="team-block">
+      <h2>Data Science</h2>
+      <img src="stoplight_green.png" alt="Stoplight" /> 90% Health
+      <p><strong>Total Backlog:</strong> 10<br><strong>Ready for Dev:</strong> 9</p>
+      <p><strong>Hygiene:</strong> 0 missing points, 0 assignees</p>
+      <p class="explanation">
+        Based on unslotted stories. Health = (# Ready for Dev ÷ Total Backlog)
+      </p>
+    </div>
+    <!-- Repeat team-block for other teams -->
+  </div>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll(".tab-content").forEach(div => div.classList.remove("active"));
+      document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+      event.target.classList.add("active");
+    }
+  </script>
 </body>
 </html>
+
