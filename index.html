@@ -1,77 +1,78 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sprint Dashboard</title>
-  <style>
-    body { font-family: Arial, sans-serif; background: #f4f4f4; padding: 40px; }
-    h1 { font-size: 2.5rem; }
-    .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
-    .tab-button {
-      padding: 10px 20px;
-      background: #ccc;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-    }
-    .tab-button.active {
-      background: #333;
-      color: #fff;
-    }
-    .tab-content {
-      display: none;
-      padding: 30px;
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .tab-content.active {
-      display: block;
-    }
-    .dashboard-card {
-      text-align: center;
-    }
-    .dashboard-card img {
-      width: 60px;
-      margin-bottom: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Sprint Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 40px; }
+        h1 { font-size: 2.5rem; }
+        .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab-button {
+            padding: 10px 20px;
+            background: #ccc;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        .tab-button.active { background: #333; color: #fff; }
+        .tab-content { display: none; padding: 30px; background: white; border-radius: 10px; box-shadow: 4px 12px rgba(0,0,0,0.1); }
+        .tab-content.active { display: block; }
+        .dashboard-card { text-align: center; margin-bottom: 30px; }
+        .dashboard-card img { width: 60px; margin-bottom: 10px; animation: blink 1s infinite; }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.1; }
+        }
+        .explanation { font-size: 0.95rem; color: #333; margin-top: 10px; }
+    </style>
 </head>
 <body>
-  <h1>Sprint Dashboard</h1>
-  <div class="tabs">
-    <button class="tab-button active" onclick="showTab('program')">Program Health</button>
-    <button class="tab-button" onclick="showTab('readiness')">Sprint Readiness</button>
-    <button class="tab-button" onclick="showTab('backlog')">Backlog Health</button>
-  </div>
-
-  <div id="program" class="tab-content active">
-    <div class="dashboard-card">
-      <h2>Overall Program Status</h2>
-      <img src="Stoplight.png" alt="Stoplight">
-      <h3>25% Health</h3>
-      <p>Avg Readiness: 9.0% | Avg Grooming: 41.7%</p>
-      <p>Last Updated: 2025-05-22 06:46 PM</p>
+    <h1>Sprint Dashboard</h1>
+    <div class="tabs">
+        <button class="tab-button active" onclick="showTab('program')">Program Health</button>
+        <button class="tab-button" onclick="showTab('readiness')">Sprint Readiness</button>
+        <button class="tab-button" onclick="showTab('backlog')">Backlog Health</button>
     </div>
-  </div>
 
-  <div id="readiness" class="tab-content">
-    <img src="data_science_readiness_chart.png" alt="Data Science Readiness">
-  </div>
+    <div id="program" class="tab-content active">
+        <div class="dashboard-card">
+            <h2>Overall Program Status</h2>
+            <img src="stoplight.png" alt="Stoplight">
+            <h3>25% Health</h3>
+            <p>Avg Readiness: 9.0% | Avg Grooming: 41.7%</p>
+            <p class="explanation">This stoplight represents the average health across all teams.</p>
+        </div>
+    </div>
 
-  <div id="backlog" class="tab-content">
-    <img src="data_science_backlog_chart.png" alt="Data Science Backlog">
-  </div>
+    <div id="readiness" class="tab-content">
+        <div class="dashboard-card">
+            <h2>Data Science</h2>
+            <img src="data_science_readiness_chart.png" alt="Data Science Readiness">
+            <p class="explanation">Data Science readiness is calculated by % of stories ready for development in upcoming sprints.</p>
+        </div>
+        <div class="dashboard-card">
+            <h2>Engineering – Platform</h2>
+            <img src="engineering___platform_readiness_chart.png" alt="Platform Readiness">
+            <p class="explanation">Platform readiness reflects grooming completion rate for sprint 7–8.</p>
+        </div>
+    </div>
 
-  <script>
-    function showTab(id) {
-      document.querySelectorAll('.tab-content').forEach(div => div.classList.remove('active'));
-      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-      event.target.classList.add('active');
-    }
-  </script>
+    <div id="backlog" class="tab-content">
+        <div class="dashboard-card">
+            <h2>Design</h2>
+            <img src="design_backlog_chart.png" alt="Design Backlog">
+            <p class="explanation">Backlog health shows how many stories are in 'New', 'Grooming', or 'Ready' state.</p>
+        </div>
+    </div>
+
+    <script>
+        function showTab(id) {
+            document.querySelectorAll('.tab-content').forEach(div => div.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
-
