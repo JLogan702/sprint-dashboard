@@ -60,7 +60,6 @@
   </div>
 
   <div id="readiness" class="tab-content active">
-
     <div class="team-block">
       <h2>Data Science</h2>
       <img src="stoplight_red.gif" alt="Stoplight"> 0% Ready
@@ -69,34 +68,30 @@
       <p><strong>Missing:</strong> 0 estimates, 0 assignees</p>
       <p>Calculated from stories in 'New', 'Grooming', or 'To Do' that are fully filled out.</p>
     </div>
-    
     <div class="team-block">
       <h2>Engineering – Platform</h2>
       <img src="stoplight_yellow.gif" alt="Stoplight"> 50% Ready
       <p><strong>In Sprint:</strong> 6<br>
       <strong>Ready:</strong> 3</p>
-      <p><strong>Missing:</strong> 1 estimates, 2 assignees</p>
+      <p><strong>Missing:</strong> 1 estimate, 2 assignees</p>
       <p>Readiness reflects grooming completion rate for sprint 7–8.</p>
     </div>
-    
     <div class="team-block">
       <h2>Engineering – Product</h2>
       <img src="stoplight_green.gif" alt="Stoplight"> 85% Ready
       <p><strong>In Sprint:</strong> 13<br>
       <strong>Ready:</strong> 11</p>
-      <p><strong>Missing:</strong> 1 estimates, 1 assignees</p>
+      <p><strong>Missing:</strong> 1 estimate, 1 assignee</p>
       <p>Only stories in 'Ready for Dev' are counted.</p>
     </div>
-    
     <div class="team-block">
       <h2>Engineering – AI Ops</h2>
       <img src="stoplight_red.gif" alt="Stoplight"> 33% Ready
       <p><strong>In Sprint:</strong> 6<br>
       <strong>Ready:</strong> 2</p>
-      <p><strong>Missing:</strong> 0 estimates, 1 assignees</p>
+      <p><strong>Missing:</strong> 0 estimates, 1 assignee</p>
       <p>Calculated from 'New', 'Grooming', or 'To Do' stories that are fully filled out.</p>
     </div>
-    
     <div class="team-block">
       <h2>Design</h2>
       <img src="stoplight_green.gif" alt="Stoplight"> 100% Ready
@@ -105,12 +100,64 @@
       <p><strong>Missing:</strong> 0 estimates, 0 assignees</p>
       <p>All stories are fully ready and meet criteria for design sprint planning.</p>
     </div>
+  </div>
+
+  <div id="backlog" class="tab-content">
+    
+    <div class="team-block">
+      <h2>Data Science</h2>
+      <img src="stoplight_red.gif" alt="Stoplight" /> 0.0% Health
+      <p><strong>Total Backlog:</strong> 43</p>
+      <p><strong>Status Breakdown:</strong><br>
+         New: 7 | Grooming: 0 | Ready for Dev: 0</p>
+      <p><strong>Hygiene Issues:</strong> 31 (missing estimate, assignee, or description)</p>
+      <p>Includes only issues not assigned to a sprint. Health % = Ready for Dev ÷ Total Backlog.</p>
+    </div>
+    
+    <div class="team-block">
+      <h2>Engineering - Platform</h2>
+      <img src="stoplight_red.gif" alt="Stoplight" /> 0.0% Health
+      <p><strong>Total Backlog:</strong> 40</p>
+      <p><strong>Status Breakdown:</strong><br>
+         New: 7 | Grooming: 2 | Ready for Dev: 0</p>
+      <p><strong>Hygiene Issues:</strong> 39 (missing estimate, assignee, or description)</p>
+      <p>Includes only issues not assigned to a sprint. Health % = Ready for Dev ÷ Total Backlog.</p>
+    </div>
+    
+    <div class="team-block">
+      <h2>Engineering - Product</h2>
+      <img src="stoplight_red.gif" alt="Stoplight" /> 0.0% Health
+      <p><strong>Total Backlog:</strong> 18</p>
+      <p><strong>Status Breakdown:</strong><br>
+         New: 11 | Grooming: 4 | Ready for Dev: 0</p>
+      <p><strong>Hygiene Issues:</strong> 18 (missing estimate, assignee, or description)</p>
+      <p>Includes only issues not assigned to a sprint. Health % = Ready for Dev ÷ Total Backlog.</p>
+    </div>
+    
+    <div class="team-block">
+      <h2>Engineering - AI Ops</h2>
+      <img src="stoplight_red.gif" alt="Stoplight" /> 0.0% Health
+      <p><strong>Total Backlog:</strong> 16</p>
+      <p><strong>Status Breakdown:</strong><br>
+         New: 3 | Grooming: 1 | Ready for Dev: 0</p>
+      <p><strong>Hygiene Issues:</strong> 11 (missing estimate, assignee, or description)</p>
+      <p>Includes only issues not assigned to a sprint. Health % = Ready for Dev ÷ Total Backlog.</p>
+    </div>
+    
+    <div class="team-block">
+      <h2>Design</h2>
+      <img src="stoplight_red.gif" alt="Stoplight" /> 0.0% Health
+      <p><strong>Total Backlog:</strong> 32</p>
+      <p><strong>Status Breakdown:</strong><br>
+         New: 3 | Grooming: 2 | Ready for Dev: 0</p>
+      <p><strong>Hygiene Issues:</strong> 32 (missing estimate, assignee, or description)</p>
+      <p>Includes only issues not assigned to a sprint. Health % = Ready for Dev ÷ Total Backlog.</p>
+    </div>
     
   </div>
-  <div id="backlog" class="tab-content">
-    <p style="text-align:center; font-size:18px;">(Backlog Health view under construction)</p>
-  </div>
-  <p style="text-align:center;">Last Updated: 2025-05-23 05:46 AM</p>
+
+  <p style="text-align:center;">Last Updated: 2025-05-23 06:03 AM</p>
+
   <script>
     function showTab(id) {
       document.querySelectorAll('.tab-content').forEach(div => div.classList.remove('active'));
