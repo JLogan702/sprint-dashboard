@@ -18,18 +18,18 @@
       display: flex;
       justify-content: center;
       margin-bottom: 20px;
+      gap: 20px;
     }
     .tab-button {
       padding: 10px 20px;
       background: #ccc;
       border: none;
-      margin: 0 10px;
+      border-radius: 6px;
       cursor: pointer;
-      border-radius: 8px;
     }
     .tab-button.active {
       background: #333;
-      color: #fff;
+      color: white;
     }
     .tab-content {
       display: none;
@@ -37,27 +37,18 @@
     .tab-content.active {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-around;
+      justify-content: center;
       gap: 20px;
     }
     .team-block {
-      background: #fff;
+      background: white;
+      border-radius: 10px;
       padding: 20px;
-      border-radius: 12px;
-      width: 400px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    .team-block h2 {
-      margin-top: 0;
+      width: 300px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .team-block img {
-      width: 40px;
-      vertical-align: middle;
-    }
-    .explanation {
-      margin-top: 12px;
-      font-size: 14px;
-      color: #333;
+      height: 40px;
     }
   </style>
 </head>
@@ -69,48 +60,64 @@
   </div>
 
   <div id="readiness" class="tab-content active">
+
     <div class="team-block">
       <h2>Data Science</h2>
-      <img src="stoplight_red.png" alt="Stoplight" /> 0% Ready
-      <p><strong>In Sprint:</strong> 3<br><strong>Ready:</strong> 0</p>
+      <img src="stoplight_red.gif" alt="Stoplight"> 0% Ready
+      <p><strong>In Sprint:</strong> 3<br>
+      <strong>Ready:</strong> 0</p>
       <p><strong>Missing:</strong> 0 estimates, 0 assignees</p>
-      <p class="explanation">
-        Calculated from stories in 'New', 'Grooming', or 'To Do' that are fully filled out.
-      </p>
+      <p>Calculated from stories in 'New', 'Grooming', or 'To Do' that are fully filled out.</p>
     </div>
+    
     <div class="team-block">
       <h2>Engineering – Platform</h2>
-      <img src="stoplight_yellow.png" alt="Stoplight" /> 50% Ready
-      <p><strong>In Sprint:</strong> 6<br><strong>Ready:</strong> 3</p>
-      <p><strong>Missing:</strong> 1 estimate, 2 assignees</p>
-      <p class="explanation">
-        Readiness reflects grooming completion rate for sprint 7–8.
-      </p>
+      <img src="stoplight_yellow.gif" alt="Stoplight"> 50% Ready
+      <p><strong>In Sprint:</strong> 6<br>
+      <strong>Ready:</strong> 3</p>
+      <p><strong>Missing:</strong> 1 estimates, 2 assignees</p>
+      <p>Readiness reflects grooming completion rate for sprint 7–8.</p>
     </div>
-    <!-- Repeat team-block for other teams -->
-  </div>
-
-  <div id="backlog" class="tab-content">
+    
     <div class="team-block">
-      <h2>Data Science</h2>
-      <img src="stoplight_green.png" alt="Stoplight" /> 90% Health
-      <p><strong>Total Backlog:</strong> 10<br><strong>Ready for Dev:</strong> 9</p>
-      <p><strong>Hygiene:</strong> 0 missing points, 0 assignees</p>
-      <p class="explanation">
-        Based on unslotted stories. Health = (# Ready for Dev ÷ Total Backlog)
-      </p>
+      <h2>Engineering – Product</h2>
+      <img src="stoplight_green.gif" alt="Stoplight"> 85% Ready
+      <p><strong>In Sprint:</strong> 13<br>
+      <strong>Ready:</strong> 11</p>
+      <p><strong>Missing:</strong> 1 estimates, 1 assignees</p>
+      <p>Only stories in 'Ready for Dev' are counted.</p>
     </div>
-    <!-- Repeat team-block for other teams -->
+    
+    <div class="team-block">
+      <h2>Engineering – AI Ops</h2>
+      <img src="stoplight_red.gif" alt="Stoplight"> 33% Ready
+      <p><strong>In Sprint:</strong> 6<br>
+      <strong>Ready:</strong> 2</p>
+      <p><strong>Missing:</strong> 0 estimates, 1 assignees</p>
+      <p>Calculated from 'New', 'Grooming', or 'To Do' stories that are fully filled out.</p>
+    </div>
+    
+    <div class="team-block">
+      <h2>Design</h2>
+      <img src="stoplight_green.gif" alt="Stoplight"> 100% Ready
+      <p><strong>In Sprint:</strong> 4<br>
+      <strong>Ready:</strong> 4</p>
+      <p><strong>Missing:</strong> 0 estimates, 0 assignees</p>
+      <p>All stories are fully ready and meet criteria for design sprint planning.</p>
+    </div>
+    
   </div>
-
+  <div id="backlog" class="tab-content">
+    <p style="text-align:center; font-size:18px;">(Backlog Health view under construction)</p>
+  </div>
+  <p style="text-align:center;">Last Updated: 2025-05-23 05:46 AM</p>
   <script>
     function showTab(id) {
-      document.querySelectorAll(".tab-content").forEach(div => div.classList.remove("active"));
-      document.querySelectorAll(".tab-button").forEach(btn => btn.classList.remove("active"));
-      document.getElementById(id).classList.add("active");
-      event.target.classList.add("active");
+      document.querySelectorAll('.tab-content').forEach(div => div.classList.remove('active'));
+      document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      event.target.classList.add('active');
     }
   </script>
 </body>
 </html>
-
